@@ -18,7 +18,7 @@ class Forwarding {
         //pos 3 = pc
 
     
-    public int[] getVector() { // para optener el vector 
+    public int[] getVector() {
         return vector;
     }
     

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import javax.swing.JLabel;
 
-
+/*Posee las variables globales necesarias para el fordwarding y se encarga de la resolucion del fordwarding*/
 public class Arqui3 {
 
     // matriz para guardar donde vienen los operandos de cada instruccion que se decodifica 
@@ -120,7 +120,7 @@ public class Arqui3 {
     /*****************************************************************************************************/
     /*****************************************************************************************************/
     /*****************************************************************************************************/
-    /*INSTRUCCIONES QUE SE ENCARGAN DE FORGUARDING */
+    /*INSTRUCCIONES QUE SE ENCARGAN DE FORWARDING */
     
     public static int buscarEnTablaForwardnigPorPC(int pcAbuscar) {// busca en la tabla de forwardings por el pc y devuelve el indice  
         int respuesta = -1;
@@ -171,35 +171,23 @@ public class Arqui3 {
 
             if (tmp == 1) { // esta en el ALO
                 respuesta = ALUOutput;
-       
-
             }
             if (tmp == 2) {// esta en el ALO de men 
                 respuesta = ALUOutput2;
-
-
             }
-           
             if (tmp == 3) { //Sacar de LMD
                 respuesta = LMD;
-
             }
-
             if (tmp==4){ // es especial solo para la SC
                 if (ALUOutput2==Integer.MIN_VALUE){
-                    respuesta=0;
-                
+                    respuesta=0;   
                 }else{   
                   respuesta= memoriasD.traerDato((ALUOutput2-640)/4);
                 }
-            
             }
-            
             if(tmp  == 31){// caso especial *
-                respuesta = registros[30];
-               
+                respuesta = registros[30];  
             }
-
         } else {
             //retrasar por fordwarding
             respuesta = Arqui3.seguirXForwarding[2];
@@ -300,11 +288,9 @@ public class Arqui3 {
                 Arqui3.matrizIRS[1] = Arqui3.matrizIRS[0].clone();
                 Arqui3.matrizIRS[0] = instruccionIf.clone();
                 //System.out.println("El vector es " + Arrays.toString(instruccionIf));
-                if (fallosSeguidos) {// para que no le 
+                if (fallosSeguidos) {
                     matrizIRS[0] = instruccionActualTmp.clone();
                 }
-        
-            
                 //revisar si debe estar aqui o dentro del if
                 System.out.println("El mae es: " + Arrays.toString(instruccionActualTmp));
                 llenarListaFordwarding(instruccionActual);
@@ -407,7 +393,7 @@ public class Arqui3 {
             terminoQuantum = true;
             if(!meter63){
                 meterBurbuja = true;
-                if (contadorQuantum < -4 ) {// ya metio 
+                if (contadorQuantum < -4 ) {// ya ha colocado un burbuja anteriormente
                   if (manejadorContexto.hilos.size()-1 !=0){ // si metio sufucientes burbujas para limpiar el pipeline 
                         manejadorContexto.cambiarContexto();
                         contadorQuantum = quantum;
@@ -429,8 +415,6 @@ public class Arqui3 {
             meter63 = false;        
         }
     }
-    
-   
     
     public static void imprimirLista() {// para probar imprime la cola de forwardings 
 

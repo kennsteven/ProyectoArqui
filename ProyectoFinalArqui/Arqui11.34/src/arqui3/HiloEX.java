@@ -15,10 +15,7 @@ class HiloEX implements Runnable{
     
     int aloTemporal = 0;
     int bTemporal = 0;
-    int []instruccion;// para guardar la intruccion que se esta ejecutando 
-    
-
-    
+    int []instruccion;// para guardar la intruccion que se esta ejecutando  
     
     // para sumar lo que este en los resgistros que resibi desde id 
    private void suma(int t) {
@@ -79,7 +76,7 @@ class HiloEX implements Runnable{
         }
         
         if(t == 22){// verificamos la condicion del SC 
-            if(aloTemporal != Arqui3.RL){ // aca le mae debria busca rl de forwarding pero es un despiche 
+            if(aloTemporal != Arqui3.RL){ // aca le mamoria debria busca rl de forwarding
                 aloTemporal = Integer.MIN_VALUE;
             }
         }
@@ -120,7 +117,4 @@ class HiloEX implements Runnable{
         Arqui3.mutexEX_MEM.release();
         Arqui3.mutexEX_ID.release();
     }
-    
-
-    
 }

@@ -42,6 +42,7 @@ class HiloIF implements Runnable{
 
     
     public void run(){
+		/*Se portejen las variables que se van a utilizar para este hilo, si estan disponibles*/
         try {
             Arqui3.mutexIF_ID.acquire();
         } catch (InterruptedException ex) {
@@ -50,6 +51,7 @@ class HiloIF implements Runnable{
            System.out.println("seguir en If :" + Arrays.toString(Arqui3.seguir));
            System.out.println("Arqui3.meterBurbuja: "+Arqui3.meterBurbuja + "Arqui3.meterBurbujaXFordwarding ="+Arqui3.meterBurbujaXFordwarding);
         
+		//Se verifican las variables globales para continuar y validar que se puede realizar la instrucción
         if((Arqui3.seguir[0] == 0 && Arqui3.seguir[3] <= 0) && Arqui3.meterBurbuja == false &&  Arqui3.meterBurbujaXFordwarding==false ){// si if no esta detenido ni ex 
             cargarInstruccion();
          
@@ -58,9 +60,7 @@ class HiloIF implements Runnable{
             Arqui3.instruccionActual = instrucciontemp.clone();
        
             System.out.println(Arrays.toString(Arqui3.instruccionActual));
-            /*if(Arqui3.pc == Integer.MIN_VALUE){
-                Arqui3.pc = 0;
-            }*/
+
             Arqui3.pc += 4;
                
         }

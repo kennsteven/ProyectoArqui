@@ -35,7 +35,7 @@ class HiloWB implements Runnable{
        int registrodestino =Arqui3.matrizIRS[3][2];// donde viene el registro destino de SC
        valorAescribir=  Arqui3.registros[registrodestino];// le mete lo que antes tenia en el registro destino de la sc 
         
-        if(codInstEjecutando == 35 || codInstEjecutando == 11){ // si son load metemos lo que har en en lmd 
+        if(codInstEjecutando == 35 || codInstEjecutando == 11){ // si son load metemos lo que hay en en lmd 
             valorAescribir = Arqui3.LMD;
         }else { // si sin las normales 
             if (codInstEjecutando != 22 ){valorAescribir = Arqui3.ALUOutput2;}

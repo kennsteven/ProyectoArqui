@@ -11,8 +11,10 @@ import java.util.List;
 
 /**
  *
- * @author JJ
+ * @author Kenneth Juan Jefry
  */
+ 
+/*Por cada proceso que se esta ejecutando se guardan los contextos, esto cuando termina la ejecucion del contexto*/
 public class ManejadorDeContextos {
     public static int indice=0;
     //public static int hilo;

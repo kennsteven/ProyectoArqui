@@ -74,10 +74,6 @@ public class HiloMem implements Runnable{
                                 }
                                  
                             break;
-                        /*case 22://Store conditional REvisar el Store conditional
-                                System.out.println("Arqui3.ALUOutput: "+direccion+" Arqui3.regBEX_Mem:"+ Arqui3.registros[instruccionID[2]]);
-                                 Arqui3.memoriasD.almacenarDato(direccion,Arqui3.registros[instruccionID[2]]);
-                                    break;*/
 
                  }
               }else{
@@ -93,7 +89,7 @@ public class HiloMem implements Runnable{
 
             if(Arqui3.forwardingTabla.get(dondeEstaEnFordwarding).getVector()[2] == 1 && //Estuvo lista en ALO1
                     Arqui3.forwardingTabla.get(dondeEstaEnFordwarding).getVector()[1] == 0){//Si ya esta lista
-                // actualizamos la tabla de fordwardings , para que el mae que la ocupe sepa que esta en alo2 
+                // actualizamos la tabla de fordwardings , para que el hilo que la ocupe sepa que esta en alo2 
                 Arqui3.forwardingTabla.get(dondeEstaEnFordwarding).getVector()[2]++;
             }
         }

@@ -2,6 +2,8 @@ package arqui3;
 import arqui3.Arqui3;
 import java.util.Arrays;
 
+/*Esta clase es la encargade de funciones relacionadas con la colocacion de 
+en memoria y de resolver las peticiones de los procesos que necesitan de memoria*/
 public class MemoriasDatos {
     int[][] cacheDatos;
     public static int[] memoriaDatos;

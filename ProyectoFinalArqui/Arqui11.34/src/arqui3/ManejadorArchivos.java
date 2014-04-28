@@ -26,6 +26,7 @@ public class ManejadorArchivos {
         cantHilos=cantidadHilos;
     }
     
+	/*Lee los datos archivos de un directorio*/
     public void cargarDirectorio(String directorio)throws Exception{
     File[] files = new File(directorio).listFiles();
     File ultimo =new File("");
@@ -48,11 +49,10 @@ public class ManejadorArchivos {
          System.out.println("Memoria de Instucciones = "+ Arrays.toString(Arqui3.memoriasI.memoriaInstrucciones));
     }
     
+	/*Lee el contenido de un solo archivo*/
     public void cargarArchivo(String dataDir) throws Exception {
-        
         File archivo = new File(dataDir);
         String linea="";
-       
        
         if (!archivo.isDirectory() && !archivo.isHidden() && archivo.exists() && archivo.canRead() ){
                 FileReader fr = new FileReader (archivo);
@@ -83,7 +83,6 @@ public class ManejadorArchivos {
             mio.memoriasI.memoriaInstrucciones[posicion]=Integer.parseInt(tokens[i]);    
               
         }
-       
         contadorPalabra++;
     }
     

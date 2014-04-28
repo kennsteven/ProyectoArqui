@@ -126,9 +126,7 @@ public class HiloID implements Runnable{
         }
     }
     
-    
-    
-    
+       
     @Override
     public void run() {
         try {
@@ -168,37 +166,4 @@ public class HiloID implements Runnable{
         Arqui3.mutexIF_ID.release();
       
     }
-
-
-  // public static void main(String args[]){
-      /*  try {
-            System.out.println("Hola");
-            Semaphore mutexID = new Semaphore(1);
-            mutexID.acquire();
-            mutexID.release();
-            boolean k = true;
-            while(k){
-               System.out.println("Hola");
-               //if(mutexID.tryAcquire()){
-                   mutexID.acquire();
-                   System.out.println("Hola2");
-                   k = false;
-                   mutexID.release();
-               //}
-            }
-            mutexID.acquire();
-            System.out.print("casifin");
-            mutexID.acquire();
-            mutexID.release();
-             System.out.print("fin");
-            Arqui3 ar = new Arqui3();
-            //ar.inicializarRegistros();
-            HiloID id = new HiloID();
-            id.cargarAB(id.identificarInstruccion());
-            Arrays.toString(id.abInmTemporal);
-            System.out.println(Arrays.toString(id.abInmTemporal));
-        } catch (InterruptedException ex) {
-            Logger.getLogger(HiloID.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-   // }
 }
