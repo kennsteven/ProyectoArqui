@@ -168,26 +168,28 @@ public class Arqui3 {
         int tmp = 0;
         if (forwardingTabla.get(indiceTmp1).getVector()[1] == 0) {// para saber si esta listo temp
             tmp = forwardingTabla.get(indiceTmp1).getVector()[2];
-
-            if (tmp == 1) { // esta en el ALO
-                respuesta = ALUOutput;
-            }
-            if (tmp == 2) {// esta en el ALO de men 
-                respuesta = ALUOutput2;
-            }
-            if (tmp == 3) { //Sacar de LMD
-                respuesta = LMD;
-            }
-            if (tmp==4){ // es especial solo para la SC
-                if (ALUOutput2==Integer.MIN_VALUE){
-                    respuesta=0;   
-                }else{   
-                  respuesta= memoriasD.traerDato((ALUOutput2-640)/4);
-                }
-            }
-            if(tmp  == 31){// caso especial *
-                respuesta = registros[30];  
-            }
+			switch(tmp){
+				case 1: // esta en el ALO
+					respuesta = ALUOutput;
+					break;
+				case 2: // esta en el ALO de men 
+					respuesta = ALUOutput2;
+					break;
+				case 3: //Sacar de LMD
+					respuesta = LMD;
+					break;	
+				case 4: // es especial solo para la SC
+					if (ALUOutput2==Integer.MIN_VALUE){
+						respuesta=0;   
+					}else{   
+					  respuesta= memoriasD.traerDato((ALUOutput2-640)/4);
+					}
+					break;
+				case 31: // caso especial *
+					respuesta = registros[30];
+					break;
+			}
+            
         } else {
             //retrasar por fordwarding
             respuesta = Arqui3.seguirXForwarding[2];
